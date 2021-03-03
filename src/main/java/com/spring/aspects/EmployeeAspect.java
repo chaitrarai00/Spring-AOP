@@ -13,4 +13,9 @@ public class EmployeeAspect {
 		System.out.println("Advice when getName joinpoint is reached with mentioned pointcut:execution(public String getName()");
 	}
 	
+	//pointcuts could be targeted to get all methods matching in a particular package
+	@Before("execution(* com.spring.service.*.get*())")
+	public void getAllAdvice() {
+		System.out.println("Advice targeted or executed when the joinpoints are from service package with all pointcuts within the package and starting with get");
+	}
 }
