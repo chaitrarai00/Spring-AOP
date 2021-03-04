@@ -9,7 +9,7 @@ import org.aspectj.lang.annotation.Before;
 @Aspect
 public class EmployeeAspectJoinPoint {
 
-	@Before("execution(public void com.spring.aspects..set*(*)")
+	@Before("execution(public void com.spring.model..set*(*))")
 	public void loggingwithtragetarg(JoinPoint joinPoint) {
 		//method to find the target method
 		System.out.println("Before running logging advice on method"+joinPoint.toString());

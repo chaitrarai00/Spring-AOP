@@ -13,9 +13,15 @@ public class MainApplication {
 	public static void main(String[] args) {
 		//SpringApplication.run(MainApplication.class, args);
 		AnnotationConfigApplicationContext annotationConfigApplicationContext=new AnnotationConfigApplicationContext(AspectsConfig.class);
-		EmployeeService employeeService=annotationConfigApplicationContext.getBean(EmployeeService.class);
-		employeeService.getEmployee().setName("Saviour");
+		EmployeeService employeeService = annotationConfigApplicationContext.getBean("employeeService", EmployeeService.class);
+		
 		System.out.println(employeeService.getEmployee().getName());
+		
+		employeeService.getEmployee().setName("Spring");
+		
+		employeeService.getEmployee().throwException();
+		
+		annotationConfigApplicationContext.close();
 	}
 
 }
